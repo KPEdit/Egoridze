@@ -1,3 +1,32 @@
 {%extends 'wrapper.html'%}
+{%load static%}
+{%block links%}
+    <link rel="stylesheet" href="{% static 'blog/blog.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
+{%endblock%}
 {%block title%}Blog page{%endblock%}
-{%block body%}{%endblock%}
+{%block body%}
+
+    <div class="blog-page">
+      {%for f in forms%}
+      <div class="article">
+        <div class="article-header">
+          <a href="#"><h2>{{f.title}}</h2></a>
+          <div class="author-date">
+            <a href="#"><h4 class="author">{{f.author}}</h4></a>
+            <h4>{{f.date}}</h4>
+          </div>
+        </div>
+        <div class="article-body">
+          {{f.blog}}
+        </div>
+        <div class="article-footer">
+          {{f.date}}
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+
+
+{%endblock%}

@@ -1,12 +1,28 @@
 <!DOCTYPE html>
-{% load static %}
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{%static 'blog/main.css'%}">
     <link rel="shortcut icon" href="{%static 'title.png'%}" type="image/png">
+    {% block links %}{%endblock%}
     <title>{%block title%}{%endblock%}</title>
-</head>
-<body>
-{%block body%}{%endblock%}
-</body>
+  </head>
+  <body>
+    <div class="header">
+      <a href="/"><img src="{%static 'title.png'%}" class="header-logo"></a>
+      <a href="/"><h1 class="header-title">Что? Где? Когда?</h1></a>
+      <h3 class="header-sub-title">В Артеме</h3>
+    </div>
+    {%block body%}{%endblock%}
+    <div class="footer">
+      <div class="footer-authors">
+        <ul>
+          <li><a href="authors">John</a></li>
+          <li><a href="authors">Tom</a></li>
+        </ul>
+      </div>
+      <div class="footer-links"></div>
+    </div>
+  </body>
 </html>
